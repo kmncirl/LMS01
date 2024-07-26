@@ -4,6 +4,15 @@
 - Download and install Python from https://www.python.org/downloads/
 - Install other python dependencies for this project -> Flask, flask-restx, flask-restful, flask-cors, flasgger, requests.
 - The above dependencies can be installed using requirements.txt.
+- ### requirements.txt
+  ```sh
+  Flask
+  flask-restx
+  flask-restful
+  flask-cors
+  flasgger
+  requests
+  ```
 - ```sh
   pip install -r requirements.txt
 

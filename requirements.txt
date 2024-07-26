@@ -1,0 +1,18 @@
+Flask
+flask-restx
+flask-restful
+flask-cors
+flasgger
+requests
+
+# Note: sqlite3 and unittest are part of the Python Standard Library and hence does not need to be installed separately with pip.
+# This requirements.txt file is used to install the required packages for the project using the command: pip install -r requirements.txt 
+# To install the dependencies separately from the command line using pip, you can use the following commands:
+'''
+pip install Flask
+pip install flask-restx
+pip install flask-restful
+pip install flask-cors
+pip install flasgger
+pip install requests
+'''

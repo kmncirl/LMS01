@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-group button {
+            padding: 10px 15px;
+            border: none;
+            background: #28a745;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background: #218838;
+        }
+        pre {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .response-container {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        // Function to add an author
+        async function addAuthor() {
+            const authorName = document.getElementById('authorName').value;
+            const dob = document.getElementById('dob').value;
+
+            const response = await fetch('http://localhost:5000/api/author/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    author: authorName,
+                    DoB: dob
+                })
+            });
+
+            const result = await response.json();
+            document.getElementById('resultAuthor').innerText = JSON.stringify(result);
+        }
+
+        // Function to get authors
+        async function getAuthors() {
+            const response = await fetch('http://localhost:5000/api/author/get');
+            const result = await response.json();
+            document.getElementById('resultAuthorGet').innerText = JSON.stringify(result);
+        }
+
+        // Function to add a book
+        async function addBook() {
+            const bookName = document.getElementById('bookName').value;
+            const publishedDate = document.getElementById('publishedDate').value;
+            const authorName = document.getElementById('bookAuthorName').value;
+
+            const response = await fetch('http://localhost:5000/api/book/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    book: bookName,
+                    publishedDate: publishedDate,
+                    authorName: authorName
+                })
+            });
+
+            const result = await response.json();
+            document.getElementById('resultBook').innerText = JSON.stringify(result);
+        }
+
+        // Function to get books
+        async function getBooks() {
+            const response = await fetch('http://localhost:5000/api/book/get');
+            const result = await response.json();
+            document.getElementById('resultBookGet').innerText = JSON.stringify(result);
+        }
+
+        // Function to add a borrower
+        async function addBorrower() {
+            const borrowerName = document.getElementById('borrowerName').value;
+            const dob = document.getElementById('borrowerDob').value;
+
+            const response = await fetch('http://localhost:5000/api/borrower/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    borrower: borrowerName,
+                    DoB: dob
+                })
+            });
+
+            const result = await response.json();
+            document.getElementById('resultBorrower').innerText = JSON.stringify(result);
+        }
+
+        // Function to get borrowers
+        async function getBorrowers() {
+            const response = await fetch('http://localhost:5000/api/borrower/get');
+            const result = await response.json();
+            document.getElementById('resultBorrowerGet').innerText = JSON.stringify(result);
+        }
+
+        // Function to borrow a book
+        async function borrowBook() {
+            const bookName = document.getElementById('borrowBookName').value;
+            const borrowerName = document.getElementById('borrowBookBorrowerName').value;
+            const daysBorrowed = document.getElementById('borrowBookDays').value;
+
+            const response = await fetch('http://localhost:5000/api/book/borrow', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    book_name: bookName,
+                    borrowerName: borrowerName,
+                    daysBorrowed: daysBorrowed
+                })
+            });
+
+            const result = await response.json();
+            document.getElementById('resultBorrowBook').innerText = JSON.stringify(result);
+        }
+
+        // Function to get borrowed books
+        async function getBorrowedBooks() {
+            const borrowerName = document.getElementById('borrowedBooksBorrowerName').value;
+
+            const response = await fetch('http://localhost:5000/api/borrower/borrowedBooks', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    borrower: borrowerName
+                })
+            });
+
+            const result = await response.json();
+            document.getElementById('resultBorrowedBooksGet').innerText = JSON.stringify(result);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Library Management System</h1>
+        
+        <h2>Add Author</h2>
+        <div class="form-group">
+            <label for="authorName">Author Name:</label>
+            <input type="text" id="authorName" placeholder="Enter author name">
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob">
+        </div>
+        <div class="form-group">
+            <button onclick="addAuthor()">Add Author</button>
+        </div>
+        <div class="response-container">
+            <h3>Result:</h3>
+            <pre id="resultAuthor"></pre>
+        </div>
+
+        <h2>Get Authors</h2>
+        <div class="form-group">
+            <button onclick="getAuthors()">Get Authors</button>
+        </div>
+        <div class="response-container">
+            <h3>Result:</h3>
+            <pre id="resultAuthorGet"></pre>
+        </div>
+
+        <h2>Add Book</h2>
+        <div class="form-group">
+            <label for="bookName">Book Name:</label>
+            <input type="text" id="bookName" placeholder="Enter book name">
+        </div>
+        <div class="form-group">
+            <label for="publishedDate">Published Date:</label>
+            <input type="date" id="publishedDate">
+        </div>
+        <div class="form-group">
+            <label for="bookAuthorName">Author Name:</label>
+            <input type="text" id="bookAuthorName" placeholder="Enter author name">
+        </div>
+        <div class="form-group">
+            <button onclick="addBook()">Add Book</button>
+        </div>
+        <div class="response-container">
+            <h3>Result:</h3>
+            <pre id="resultBook"></pre>
+        </div>
+
+        <h2>Get Books</h2>
+        <div class="form-group">
+            <button onclick="getBooks()">Get Books</button>
+        </div>
+        <div class="response-container">
+            <h3>Result:</h3>
+            <pre id="resultBookGet"></pre>
+        </div>
+
+        <h2>Add Borrower</h2>
+        <div class="form-group">
+            <label for="borrowerName">Borrower Name:</label>
+            <input type="text" id="borrowerName" placeholder="Enter borrower name">
+        </div>
+        <div class="form-group">
+            <label for="borrowerDob">Date of Birth:</label>
+            <input type="date" id="borrowerDob">
+        </div>
+        <div class="form-group">
+            <button onclick="addBorrower()">Add Borrower</button>
+        </div>
+        <div class="response-container">
+            <h3>Result:</h3>
+            <pre id="resultBorrower"></pre>
+        </div>
+
+        <h2>Get Borrowers</h2>
+        <div class="form-group">
+            <button onclick="getBorrowers()">Get Borrowers</button>
+        </div>
+        <div class="response-container">
+            <h3>Result:</h3>
+            <pre id="resultBorrowerGet"></pre>
+        </div>
+
+        <h2>Borrow Book</h2>
+        <div class="form-group">
+            <label for="borrowBookName">Book Name:</label>
+            <input type="text" id="borrowBookName" placeholder="Enter book name">
+        </div>
+        <div class="form-group">
+            <label for="borrowBookBorrowerName">Borrower Name:</label>
+            <input type="text" id="borrowBookBorrowerName" placeholder="Enter borrower name">
+        </div>
+        <div class="form-group">
+            <label for="borrowBookDays">Days Borrowed:</label>
+            <input type="number" id="borrowBookDays" placeholder="Enter number of days">
+        </div>
+        <div class="form-group">
+            <button onclick="borrowBook()">Borrow Book</button>
+        </div>
+        <div class="response-container">
+            <h3>Result:</h3>
+            <pre id="resultBorrowBook"></pre>
+        </div>
+
+        <h2>Get Borrowed Books</h2>
+        <div class="form-group">
+            <label for="borrowedBooksBorrowerName">Borrower Name:</label>
+            <input type="text" id="borrowedBooksBorrowerName" placeholder="Enter borrower name">
+        </div>
+        <div class="form-group">
+            <button onclick="getBorrowedBooks()">Get Borrowed Books</button>
+        </div>
+        <div class="response-container">
+            <h3>Result:</h3>
+            <pre id="resultBorrowedBooksGet"></pre>
+        </div>
+    </div>
+</body>
+</html>

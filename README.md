@@ -27,7 +27,7 @@
   ```
 - Note: sqlite3 and unittest are part of the Python Standard Library and hence does not need to be installed separately with pip.
 
-## Setup
+## Setup and Running the Application
 1. Clone the repository:
 ```sh
 git clone https://github.com/kmncirl/LMS01.git

@@ -37,3 +37,10 @@ git clone https://github.com/kmncirl/LMS01.git
 ```sh
 cd LMS01
 ```
+
+3. Run the application:
+```sh
+python main.py
+```
+
+4. 

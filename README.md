@@ -43,4 +43,15 @@ cd LMS01
 python main.py
 ```
 
-4. 
+4. Running Unit tests:
+```sh
+python -m unittest discover tests
+```   
+
+5. Running Integration tests:
+```sh
+python test_integration.py
+```   
+
+## API documentation
+   

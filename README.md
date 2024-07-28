@@ -66,3 +66,15 @@ python test_integration.py
 - You can find the various details such as API endpoints (Book, Author, Borrower endpoints), API Request and Response models.
 - Also, you can execute API tests by using the "Try it out" option on the swagger UI.
 
+## Database Schema
+The database schema includes the following tables:
+- **Author** table stores author details.
+ ```sql
+CREATE TABLE IF NOT EXISTS author (
+    id INTEGER PRIMARY KEY,
+    author_name TEXT NOT NULL UNIQUE,
+    date_of_birth TEXT NOT NULL
+);
+``` 
+
+

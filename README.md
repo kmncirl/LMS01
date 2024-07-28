@@ -1,5 +1,5 @@
 # Library Management System (LMS)
-### Overview:
+### Overview
 The Library Management System (LMS) is a RESTful web service application developed using Python, Flask web framework, SQLite in-memory database. It is used to manage authors, books, borrowers. It allows you to add new books, authors and borrowers, borrow books, retrieve details of the books, authors, borrowers and borrowed books. 
 
 ## Pre-requisite and Installation

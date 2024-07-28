@@ -43,12 +43,12 @@ cd LMS01
 python main.py
 ```
 
-4. Running Unit tests:
+4. Run Unit tests:
 ```sh
 python -m unittest discover tests
 ```   
 
-5. Running Integration tests:
+5. Run Integration tests:
 ```sh
 python test_integration.py
 ```   

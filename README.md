@@ -61,6 +61,6 @@ python test_integration.py
 ## API documentation
 ### Swagger UI 
 - Open any web browser and navigate to the following URL http://localhost:5000/
-- You can find the various details such as API endpoints, API Request and Response models.
+- You can find the various details such as API endpoints (Book, Author, Borrower endpoints), API Request and Response models.
 - Also, you can execute API tests by using the "Try it out" option on the swagger UI.
 

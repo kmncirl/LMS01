@@ -68,18 +68,18 @@ python test_integration.py
 
 ### API Endpoints
 - **Author Endpoint**
-- Add Author: POST /api/author/add
-- Get Authors: GET /api/author/get
+  - Add Author: POST /api/author/add
+  - Get Authors: GET /api/author/get
 
 - **Book Endpoint**
-- Add Book: POST /api/book/add
-- Get Books: GET /api/book/get
-- Borrow Book: POST /api/book/borrow
+  - Add Book: POST /api/book/add
+  - Get Books: GET /api/book/get
+  - Borrow Book: POST /api/book/borrow
 
 - **Borrower Endpoint**
-- Add Borrower: POST /api/borrower/add
-- Get Borrowers: GET /api/borrower/get
-- Get Borrowed Books: POST /api/borrower/borrowedBooks
+  - Add Borrower: POST /api/borrower/add
+  - Get Borrowers: GET /api/borrower/get
+  - Get Borrowed Books: POST /api/borrower/borrowedBooks
 
 ## Database Schema
 The database schema includes the following tables:

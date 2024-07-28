@@ -68,13 +68,39 @@ python test_integration.py
 
 ## Database Schema
 The database schema includes the following tables:
-- **Author** table stores author details.
- ```sql
+- **author** table stores author details.
+```sql
 CREATE TABLE IF NOT EXISTS author (
-    id INTEGER PRIMARY KEY,
-    author_name TEXT NOT NULL UNIQUE,
+    id INTEGER PRIMARY KEY, 
+    author_name TEXT NOT NULL UNIQUE, 
     date_of_birth TEXT NOT NULL
 );
 ``` 
-
+- **books** table stores book details.
+```sql
+CREATE TABLE IF NOT EXISTS books (
+    id INTEGER PRIMARY KEY, 
+    book_name TEXT NOT NULL UNIQUE, 
+    published_date TEXT NOT NULL, 
+    author_id INTEGER
+);
+```
+- **borrower** table stores borrower details.
+```sql
+CREATE TABLE IF NOT EXISTS borrower (
+    id INTEGER PRIMARY KEY, 
+    borrower_name TEXT NOT NULL UNIQUE, 
+    date_of_birth TEXT NOT NULL
+);
+```
+- **issued_book** table stores issued book details.
+```sql
+CREATE TABLE IF NOT EXISTS issued_book (
+    book_id INTEGER, 
+    borrower_id INTEGER, 
+    borrower_date TEXT NOT NULL, 
+    return_date TEXT NOT NULL
+);
+```  
+    
 

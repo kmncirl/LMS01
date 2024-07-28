@@ -84,9 +84,9 @@ python test_integration.py
 ## Database Schema
 The database schema includes the following tables:
 - **author** table stores author details.
-- id: Primary key, integer, unique identifier for each author.
-- author_name: Text, name of the author, must be unique.
-- date_of_birth: Text, date of birth of the author.
+  - id: Primary key, integer, unique identifier for each author.
+  - author_name: Text, name of the author, must be unique.
+  - date_of_birth: Text, date of birth of the author.
 ```sql
 CREATE TABLE IF NOT EXISTS author (
     id INTEGER PRIMARY KEY, 
@@ -95,10 +95,10 @@ CREATE TABLE IF NOT EXISTS author (
 );
 ``` 
 - **books** table stores book details.
-- id: Primary key, integer, unique identifier for each book.
-- book_name: Text, name of the book, must be unique.
-- published_date: Text, publication date of the book.
-- author_id: Integer, foreign key referencing the author table.
+  - id: Primary key, integer, unique identifier for each book.
+  - book_name: Text, name of the book, must be unique.
+  - published_date: Text, publication date of the book.
+  - author_id: Integer, foreign key referencing the author table.
 ```sql
 CREATE TABLE IF NOT EXISTS books (
     id INTEGER PRIMARY KEY, 
@@ -108,9 +108,9 @@ CREATE TABLE IF NOT EXISTS books (
 );
 ```
 - **borrower** table stores borrower details.
-- id: Primary key, integer, unique identifier for each borrower.
-- borrower_name: Text, name of the borrower, must be unique.
-- date_of_birth: Text, date of birth of the borrower.
+  - id: Primary key, integer, unique identifier for each borrower.
+  - borrower_name: Text, name of the borrower, must be unique.
+  - date_of_birth: Text, date of birth of the borrower.
 ```sql
 CREATE TABLE IF NOT EXISTS borrower (
     id INTEGER PRIMARY KEY, 
@@ -119,10 +119,10 @@ CREATE TABLE IF NOT EXISTS borrower (
 );
 ```
 - **issued_book** table stores issued book details.
-- book_id: Integer, foreign key referencing the books table.
-- borrower_id: Integer, foreign key referencing the borrower table.
-- borrower_date: Text, date when the book was borrowed.
-- return_date: Text, date when the book is expected to be returned.
+  - book_id: Integer, foreign key referencing the books table.
+  - borrower_id: Integer, foreign key referencing the borrower table.
+  - borrower_date: Text, date when the book was borrowed.
+  - return_date: Text, date when the book is expected to be returned.
 ```sql
 CREATE TABLE IF NOT EXISTS issued_book (
     book_id INTEGER, 

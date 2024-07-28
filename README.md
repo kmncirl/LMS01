@@ -79,7 +79,7 @@ python test_integration.py
 - **Borrower Endpoint**
   - Add Borrower: POST /api/borrower/add
   - Get Borrowers: GET /api/borrower/get
-  - Get Borrowed Books: POST /api/borrower/borrowedBooks
+  - Borrowed Books: POST /api/borrower/borrowedBooks
 
 ## Database Schema
 The database schema includes the following tables:

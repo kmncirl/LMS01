@@ -81,6 +81,173 @@ python test_integration.py
   - Get Borrowers: GET /api/borrower/get
   - Borrowed Books: POST /api/borrower/borrowedBooks
 
+### API Request Response Models
+- **Author Request Model**
+```json
+{
+  "type": "object",
+  "required": [
+    "DoB",
+    "author"
+  ],
+  "properties": {
+    "author": {
+      "type": "string",
+      "description": "The Author name"
+    },
+    "DoB": {
+      "type": "string",
+      "description": "The Author's date of birth"
+    }
+  }
+}
+```
+- **Author Response Model**
+```json
+{
+  "type": "object",
+  "properties": {
+    "authors": {
+      "type": "string",
+      "description": "Author details"
+    }
+  }
+}
+```
+- **Book Request Model**
+```json
+{
+  "type": "object",
+  "required": [
+    "authorName",
+    "book",
+    "publishedDate"
+  ],
+  "properties": {
+    "book": {
+      "type": "string",
+      "description": "The book name"
+    },
+    "authorName": {
+      "type": "string",
+      "description": "Name of the author of the book"
+    },
+    "publishedDate": {
+      "type": "string",
+      "description": "The book published date"
+    }
+  }
+}
+```
+- **Book Response Model**
+```json
+{
+  "type": "object",
+  "properties": {
+    "bookDetails": {
+      "type": "string",
+      "description": "Book details"
+    }
+  }
+}
+```
+- **Borrow Book Request Model**
+```json
+{
+  "type": "object",
+  "required": [
+    "book_name",
+    "borrowerName",
+    "daysBorrowed"
+  ],
+  "properties": {
+    "book_name": {
+      "type": "string",
+      "description": "The book name"
+    },
+    "borrowerName": {
+      "type": "string",
+      "description": "The person who borrows the book"
+    },
+    "daysBorrowed": {
+      "type": "string",
+      "description": "The number of days borrowed"
+    }
+  }
+}
+```
+- **Borrow Book Response Model**
+```json
+{
+  "type": "object",
+  "properties": {
+    "result": {
+      "type": "string",
+      "description": "Borrow book result"
+    }
+  }
+}
+```
+- **Borrower Request Model**
+```json
+{
+  "type": "object",
+  "required": [
+    "DoB",
+    "borrower"
+  ],
+  "properties": {
+    "borrower": {
+      "type": "string",
+      "description": "The Borrower name"
+    },
+    "DoB": {
+      "type": "string",
+      "description": "The Borrower's date of birth"
+    }
+  }
+}
+```
+- **Borrower Response Model**
+```json
+{
+  "type": "object",
+  "properties": {
+    "borrowers": {
+      "type": "string",
+      "description": "Borrower details"
+    }
+  }
+}
+```
+- **Borrowed Books Request Model**
+```json
+{
+  "type": "object",
+  "required": [
+    "borrower"
+  ],
+  "properties": {
+    "borrower": {
+      "type": "string",
+      "description": "The Borrower name"
+    }
+  }
+}
+```
+- **Borrowed Books Response Model**
+```json
+{
+  "type": "object",
+  "properties": {
+    "borrowed_books": {
+      "type": "string",
+      "description": "Borrowed books details."
+    }
+  }
+}
+```
+ 
 ## Database Schema
 The database schema includes the following tables:
 - **author** table stores author details.
